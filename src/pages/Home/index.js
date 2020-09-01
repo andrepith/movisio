@@ -1,5 +1,12 @@
 import React from "react";
+import Search from 'components/Search'
 
-const Dashboard = () => <>This is home</>;
+const Dashboard = () => {
+    return (
+        <div>
+            <Search />
+        </div>
+    )
+}
 
 export default Dashboard;
