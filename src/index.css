@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   max-width: 48rem;
   min-height: 100vh;
-  margin: auto;
+  margin: auto !important;
   padding: .5rem;
   text-align: center;
 }
