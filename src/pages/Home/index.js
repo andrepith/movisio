@@ -4,25 +4,29 @@ import Search from 'components/Search'
 import Card from 'components/Card'
 import { getMovieListByTitle } from "store/actions";
 
-const Dashboard = () => {
+const Dashboard = ({ history }) => {
   const [page, setPage] = useState(1)
   const [data, setData] = useState([])
+  const [search, setSearch] = useState('Avengers')
   const disptach = useDispatch()
   const { movieList } = useSelector(state => state)
   const fetchApi = async () => {
-    await disptach(getMovieListByTitle({ search: 'Avengers', page }))
-    setData(movieList.Search)
+    disptach(getMovieListByTitle({ search, page }))
+  }
+
+  const onSearchKeyword = (data) => {
+    setSearch(data)
   }
 
   useEffect(() => {
-    fetchApi()
-  }, [page])
+    fetchApi() 
+  }, [page, search])
 
   return (
     <div>
-      {/* <Search /> */}
+      <Search onSearchKeyword={onSearchKeyword} />
       {(movieList.Search || []).map((item, index) => (
-        <Card key={index} {...item} />
+        <Card key={index} {...item} history={history}  />
       ))}
     </div>
   )

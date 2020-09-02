@@ -5,15 +5,16 @@ import { debounce } from "lodash";
 
 import { getMovieListByTitle } from "store/actions";
 
-const SearchByTitle = ({ getMovieListByTitle }) => {
+const SearchByTitle = ({ getMovieListByTitle, onSearchKeyword }) => {
   try {
     const handleChange = e => {
-      fetchApi(e.target.value);
+      searchKeyword(e.target.value);
     };
 
-    const fetchApi = debounce(search => {
-      getMovieListByTitle({ search });
-    }, 300);
+    const searchKeyword = debounce(search => {
+      onSearchKeyword(search)
+    }, 800);
+
     return (
       <InputGroup className="mb-3">
         <FormControl onChange={handleChange} placeholder="Try Avengers...." />

@@ -3,7 +3,9 @@ import React from "react";
 const Card = ({
   Title,
   Poster,
-  key
+  key,
+  imdbID,
+  history
 }) => {
   return (
     <div className="card p-4 mb-4" style={{ 
@@ -19,6 +21,7 @@ const Card = ({
       </div>
       <div className="card-body text-center">
         <div>{Title}</div>
+        <button onClick={() => history.push(`/${imdbID}`)}>Go to detail</button>
       </div>
     </div>
   );
