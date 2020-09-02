@@ -2,6 +2,8 @@ import React from 'react';
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { store } from "./store";
 import routes from "./routes";
 import NotFound from "pages/NotFound";

@@ -10,5 +10,5 @@ export const omdbService = async ({ search }) => {
     params
   });
 
-  return response;
+  return response.data;
 };
